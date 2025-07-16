@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 
 // Replace with your Railway backend URL:
-const socket = io('rock-paper-scissors-production-8316.up.railway.app', {
+const socket = io('https://rock-paper-scissors-production-8316.up.railway.app', {
   transports: ['websocket'],
 });
 
@@ -27,6 +27,7 @@ export default function App() {
 
   useEffect(() => {
     socket.on('result', (data) => {
+		console.log('Result received:', data);
       setResult(
         `${data.player1Name} (${data.move1}) vs ${data.player2Name} (${data.move2}) → ${data.result}`
       );
