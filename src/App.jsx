@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 
 // Replace with your Railway backend URL:
-const socket = io('rock-paper-scissors-production-8316.up.railway.app');
+const socket = io('rock-paper-scissors-production-8316.up.railway.app', {
+  transports: ['websocket'],
+});
 
 export default function App() {
   const [room, setRoom] = useState('');
